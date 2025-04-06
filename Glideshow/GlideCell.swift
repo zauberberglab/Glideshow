@@ -266,7 +266,8 @@ class GlideCell: UICollectionViewCell {
             if let url = URL(string: item.imgURL ?? "") {
                 return ImageLoader.shared.loadImage(from: url)
             } else {
-                return nil
+                // Return a publisher that emits nil and completes
+                return Just(nil).eraseToAnyPublisher()
             }
          })
          .eraseToAnyPublisher()
