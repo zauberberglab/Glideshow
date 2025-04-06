@@ -177,7 +177,6 @@ class GlideCell: UICollectionViewCell {
     /// Maximum width of a GlideLabel. Calculated using leading inset of cell
     private var animateableMaxWidth : CGFloat!
     
-    @available(iOS 13, *)
     private lazy var cancellable : AnyCancellable? = nil
         
     public override func awakeFromNib() {
