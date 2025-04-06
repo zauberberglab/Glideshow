@@ -263,8 +263,11 @@ class GlideCell: UICollectionViewCell {
     private func loadImage(for item: GlideItem) -> AnyPublisher<UIImage?, Never> {
         return Just(item.imgURL)
          .flatMap({ poster -> AnyPublisher<UIImage?, Never> in
-            let url = URL(string: item.imgURL ?? "")!
-             return ImageLoader.shared.loadImage(from: url)
+            if let url = URL(string: item.imgURL ?? "") {
+                return ImageLoader.shared.loadImage(from: url)
+            } else {
+                return nil
+            }
          })
          .eraseToAnyPublisher()
      }
