@@ -363,6 +363,7 @@ public class Glideshow: UIView {
     /// Animates Glideshow slides
     /// - Parameter timer: `Timer` that invokes the function
     @objc fileprivate func animateSlideWithTime(_ timer : Timer?){
+        guard self.width > 0 else { return }
         let currentPage = Int(round(offset/width))
         collectionView?.scrollToItem(
             at: IndexPath(
